@@ -26,8 +26,11 @@ app.use(fileUpload({ useTempFiles: true }));
 app.use(express.static("./public"));
 // --- use the middlewares
 
-// --- api routes
-// --- api routes
+// --- import routes from router
+// --- import routes from router
+
+// --- api routes "/api/v1"
+// --- api routes "/api/v1"
 
 app.get("/", (req, res) => {
 	res.send("Boilerplate");
@@ -42,9 +45,11 @@ app.use(errorHandlingMiddleware);
 const port = process.env.PORT || 5000;
 const start = async () => {
 	try {
-		await connectDB(process.env.MONGO_URI);
+		// await connectDB(process.env.MONGO_URI);
 		app.listen(port, console.log(`Server listening on port ${port}...`));
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };
 // --- assign port and connect server to database
 start();
